@@ -325,11 +325,19 @@ UPDATE Faculty SET FacultyID = 30 WHERE FacultyID = 3;
 SELECT * FROM Marks;  -- FacultyID for marks graded by FacultyID 3 should now be 30
 SELECT * FROM Salary;  -- FacultyID in Salary table for FacultyID 3 should now be 30
 
-
 /*
+Naming Conventions in case of Add & Drop Constraints:
+
+If you are creating constraints, it's a good practice to use a consistent naming convention. 
+This can help you easily identify constraints later. A common convention is to use the format:
+
+For CHECK constraints: chk_<table>_<column>
+For UNIQUE constraints: unique_<table>_<column>
+For FOREIGN KEY constraints: fk_<table>_<referenced_table>
+
 In MySQL, you can add and drop constraints on existing tables using the ALTER TABLE statement.
 
-Adding Constraints
+Adding Constraints -->
 
 1. Adding a Foreign Key Constraint: 
 You can add a foreign key constraint to an existing table to enforce referential integrity.
@@ -352,6 +360,11 @@ You can drop a unique constraint if you want to allow duplicate values in a colu
 3. Dropping a Check Constraint: 
 You can drop a check constraint if you want to remove the condition on a column.
 
+
+Example of Adding Constraints with Naming Conventions
+
+ALTER TABLE Flights 
+ADD CONSTRAINT chk_flight_duration CHECK (Flight_Duration > 0);
 */
 
 
