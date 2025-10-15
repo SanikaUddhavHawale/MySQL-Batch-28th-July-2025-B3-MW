@@ -15,6 +15,14 @@ Key Features of Views
 2. Security: They can restrict access to specific rows or columns of data.
 3. Reusability: Once created, views can be reused in other queries.
 
+Real-Time Use of Views
+1. For Security – Suppose HR staff should not see employee salaries.
+Create a view showing only name and position, and give them access to that view only.
+2. For Reports – A company may create a view like MonthlySalesReport
+that combines multiple tables (sales, products, customers) to show summarized data.
+3. For Simplification – If a query joins 5 tables and is used often,
+you can create a view once and just run SELECT * FROM MyComplexView;
+4. For Reusability – Views are permanent objects that can be used by different users and queries again and again.
 */
 
 
@@ -155,6 +163,24 @@ Key Features of CTEs
 1. Readability: CTEs can make complex queries easier to read and maintain.
 2. Recursion: CTEs can be recursive, allowing for hierarchical data traversal.
 3. Modularity: They can be defined once and referenced multiple times within the same query.
+
+Real-Time Use of CTEs
+1. For Readability – When a query is long and uses subqueries,
+you can use CTEs to make it clean and easy to understand.
+2. For Hierarchical Data – Example: finding an employee’s manager → their manager → and so on.
+Recursive CTEs are best for such “tree-like” or “reporting hierarchy” problems.
+3. For Temporary Analysis – When analysts or developers run one-time reports or transformations,
+CTEs help to temporarily store and reuse intermediate results.
+4. For Data Transformation – Suppose you want to find average salary by department
+and then use that average again — you can calculate it in a CTE and use it below in the same query.
+
+Simple Difference in Meaning
+--> View = Permanent and reusable (like saving a query as a file).
+--> CTE = Temporary and single-use (like using a scratchpad while working).
+
+Real-Life Analogy -->
+Think of a View as a saved playlist on a music app — you create it once, and you can play it anytime.
+A CTE is like a temporary queue of songs you make just for this session — it’s gone after you close the app.
 */
 
 -- Example 1: Employee Management System with CTE
